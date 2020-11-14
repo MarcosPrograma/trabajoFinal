@@ -3,23 +3,36 @@ FACULTAD DE ARTES - UNIVERSIDAD NACIONAL DE LA PLATA.
 TECNOLOGIA MULTIMEDIA 1 - DISEÑO MULTIMEDIAL| Prof. Matias Jauregui Lorda
 ALUMNOS: 
   JUÁREZ AGÜERO, Marcos Emmanuel (N.° de legajo: 85165/5).
-  PERUGINI GUSTAVO (N.° de Legajo: -----/-)       
+  PERUGINI GUSTAVO (N.° de Legajo: 85154/1)       
 
 AVENTURA GRÁFICA + MINIJUEGO. 
 */
 
 //IMPORTAR EL SONIDO EN FORMA GLOBAL
 
+//DECLARAR la clase Aventura Grafica
+AventuraGrafica aventuraGrafica;
+
 void setup(){
-  size(800,600); //PREGUNTAR POR EL RESIZE!!!
+  //fullScreen();
+  size(1200, 720); //resize = uso de variables o width/height
   
-  //HACER EL USO DEL THIS 
+  //HACER EL USO DEL THIS PARA EL SONIDO
+  
+  //INICIAR la clase aventuraGrafica
+  aventuraGrafica = new AventuraGrafica();
 }
 
-void draw(){}
+//Hacer el LLLAMADO de cada uno de los METODOS
+void draw(){
+  //CONVOCAR la visualización de la aventuraGrafica
+  aventuraGrafica.dibujar();
+}
 
 void mousePressed(){
+  aventuraGrafica.mouse();
 }
 
 void keyPressed(){
+  aventuraGrafica.teclado();
 }
