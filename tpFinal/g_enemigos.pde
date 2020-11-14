@@ -33,7 +33,11 @@ class Enemigos {
     velocidad = random(-3, -1);
   }
 
-  //Colisión
-  void destruir() {
+  //--------------- Colisión ---------------
+  void destruir(Proyectil p) {
+    float d = dist (xEnemigos, yEnemigos, p.xProyectil, p.yProyectil);
+     if (d < yEnemigos/6) {
+      reciclar();
+     }
   }
 }

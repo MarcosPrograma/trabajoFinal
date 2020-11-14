@@ -16,7 +16,7 @@ class Juego {
   //--------------- CONSTRUCTOR - SETUP DE LA CLASE ---------------
   Juego() {
     //Lógica de estado
-    //aventuraGrafica.estado = 10;
+    //aventuraGrafica.estado == 10
     //DECLARAR LAS DEMAS CLASES
     for ( int i = 0; i < enemigos.length; i++ ) {
       enemigos[i] = new Enemigos();
@@ -60,8 +60,11 @@ class Juego {
         //Actualizamos valores de los enemigos para volver a cargar nuevos
         enemigos[i].actualizar();
         //---- Colisión de los enemigos ----
+        enemigos[i].destruir(jugador.proyectil);
       }
       //---- Colisión de  los objetos ----
+      thanos.destruir(jugador.proyectil);
+      jugador.destruir(enemigos);
     }
   }
 

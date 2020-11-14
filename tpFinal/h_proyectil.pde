@@ -23,6 +23,6 @@ class Proyectil {
 
   //Movimiento del proyectil
   void disparar() {
-    xProyectil = xProyectil + 2;
+    xProyectil = xProyectil + 1;
   }
 }

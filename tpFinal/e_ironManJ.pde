@@ -46,7 +46,14 @@ class IronmanJ {
     proyectil.disparar();
   } 
 
-  //Colisión
-  void destruir() {
+  //--------------- Colisión ---------------
+  void destruir(Enemigos[] e) {
+    for (int i = 0; i < e.length; i++) {
+      float d = dist(xIronman, yIronman, e[i].xEnemigos, e[i].yEnemigos);
+      if (d < xIronman/2 && d < yIronman/2) {
+        aventuraGrafica.estado = 13;
+        println("perdiste");
+      }
+    }
   }
 }

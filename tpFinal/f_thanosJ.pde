@@ -30,5 +30,12 @@ class ThanosJ {
     }
   }
 
-  //Colisión
+  //--------------- Colisión ---------------
+  void destruir(Proyectil p) {
+    float d = dist( xThanos, yThanos, p.xProyectil, p.yProyectil);
+    if (d < xThanos/5 && d < yThanos/4) {
+      aventuraGrafica.estado = 12;
+      println("ganaste");
+    }
+  }
 }  

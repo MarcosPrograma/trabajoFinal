@@ -19,7 +19,7 @@ class AventuraGrafica {
   //--------------- CONSTRUCTOR - SETUP DE LA CLASE ---------------
   AventuraGrafica() {
     //INICIAR LÓGICA DE ESTADO
-    estado = 10; 
+    estado = 0; 
     //IMAGENES
     //PANTALLAS
     estado1 = loadImage("estado1.png"); 
@@ -35,6 +35,7 @@ class AventuraGrafica {
     estado12 = loadImage("estado12.png");
     estado13 = loadImage("estado13.png");
     estado14 = loadImage("estado14.png");
+    estado15 = loadImage("estado15.png");
     //DECORACION
     encuadreOpcion = loadImage("Opcion.png");
     //ATRIBUTOS
@@ -63,8 +64,8 @@ class AventuraGrafica {
     else if (estado == 1) {
       pantalla2();
       //Opciones
-      image(encuadreOpcion, tamX/3.5, tamY/1.1);
-      image(encuadreOpcion, tamX/1.5, tamY/1.1);
+      image(encuadreOpcion, tamX/2 - 200, tamY/1.1);
+      image(encuadreOpcion, tamX/2 + 200, tamY/1.1);
     }
     //PANTALLA 3 - ESTADO 2 - Marcar coordenadas
     else if (estado == 2) {
@@ -108,15 +109,19 @@ class AventuraGrafica {
     }
     //PANTALLA 12 - ESTADO 11 - Final 1 (Ver lo ocurrido)
     else if (estado == 11) {
+      pantalla12();
     }
     //PANTALLA 13 - ESTADO 12 - Final 2 (Ganan los avengers)
     else if (estado == 12) {
+      pantalla13();
     }
     //PANTALLA 14 - ESTADO 13 - Final 3 (Gana Thanos)
     else if (estado == 13) {
+      pantalla14();
     }
     //PANTALLA 15 - ESTADO 14 - Créditos
     else if (estado == 14) {
+      pantalla15();
     }
   }
 
@@ -134,7 +139,7 @@ class AventuraGrafica {
     if  ( estado == 0 ) {  
       if ( key == ' ' ) {
         estado = 1;
-      }
+      } 
     }
     //PANTALLA 2 - Tony se encuentra en la Nave 
     else if (estado == 1) {
@@ -172,15 +177,28 @@ class AventuraGrafica {
         estado = 9; //Confrotación junto a los Vengadores en el planeta Titán con Thanos
       }
     }
-    else if (estado == 9){ //Comenzar el mini-juego
+    //Comenzar el mini-juego
+    else if (estado == 9){ 
       if ( keyCode == ENTER) {
         estado = 10; 
       }
     }
+    //Saber lo ocurrido == Hacia el final 1
+    else if (estado == 8){
+      if ( keyCode == UP) { 
+         estado = 11;
+      }
+    }
     //REINICIAR
-    else if (estado == 3 || estado == 7) { 
+    else if (estado == 3 || estado == 7 || estado == 14) { 
       if ( key == 'r' || key == 'R') {
         estado = 0;
+      }
+    }
+    //CREDITOS
+    else if (estado == 11 || estado == 12 || estado == 13) {
+      if (key == ' '){
+        estado = 14;
       }
     }
   }
@@ -240,5 +258,6 @@ class AventuraGrafica {
   }
   //ESTADO == PANTALLA 15 - Créditos
   void pantalla15() {
+    image(estado15, width/2, height/2, tamX, tamY);
   }
 }
