@@ -24,7 +24,7 @@ class Enemigos {
   }
 
   void dibujar() { //DRAW DEL OBJETO
-    image(enemigos, xEnemigos, yEnemigos); 
+    image(enemigos, xEnemigos, yEnemigos);
   }
 
   void reciclar() { //Volver el valor de las propiedades a Random
@@ -36,8 +36,8 @@ class Enemigos {
   //--------------- Colisión ---------------
   void destruir(Proyectil p) {
     float d = dist (xEnemigos, yEnemigos, p.xProyectil, p.yProyectil);
-     if (d < yEnemigos/6) {
+    if (d < yEnemigos/6) {
       reciclar();
-     }
+    }
   }
 }
