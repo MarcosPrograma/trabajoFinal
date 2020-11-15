@@ -15,7 +15,8 @@ AventuraGrafica aventuraGrafica;
 
 void setup(){
   //fullScreen();
-  size(1200, 1000); //resize = uso de variables o width/height
+  //size(1200, 720); //resize = uso de variables o width/height
+  size(800, 600);
   
   //HACER EL USO DEL THIS PARA EL SONIDO
   

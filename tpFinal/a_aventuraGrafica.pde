@@ -8,6 +8,9 @@ class AventuraGrafica {
   PImage encuadreOpcion, encuadreDialogo;
   //Colores
   color amarillo, rojo, negro, verde, violeta, blanco;
+  //--------------- ESTÉTICA ---------------
+  //Créditos
+  float mPosY = height/2;
   //--------------- CAMPOS ---------------
   int estado = 0;
   //Resize
@@ -19,7 +22,7 @@ class AventuraGrafica {
   //--------------- CONSTRUCTOR - SETUP DE LA CLASE ---------------
   AventuraGrafica() {
     //INICIAR LÓGICA DE ESTADO
-    estado = 0; 
+    estado = 14; 
     //IMAGENES
     //PANTALLAS
     estado1 = loadImage("estado1.png"); 
@@ -62,7 +65,14 @@ class AventuraGrafica {
     //PANTALLA 1 - ESTADO 0 - Contextualización
     if (estado == 0) {
       pantalla1();
-      //Texto
+      //Dialogo
+      fuenteDos( "En algún lugar del recóndito espacio, se encuentra \n Tony Stark vagando en su nave averiada, \n este mismo debe volver al planeta tierra \n para poder salvar al mundo de las garras \n del gigante malévolo “Thanos”, el cual tiene \n en mente destruir a la mitad de la población \n con su guante y las gemas del infinito.", width/2, mPosY, 255, 18);
+      fuenteDos("¿Estarías dispuesto a ayudar a Iron Man \n en tomar las decisiones correctas? \n Solo tú puedes salvar el mundo.", width/2, mPosY + 150, 255, 18);
+      //REINICIAR Dialogo
+      if (mPosY == height /24 - 200) {
+        mPosY = height/0.8;
+      }
+      //Opción
       fuenteUna("Presionar 'Barra Espaciadora' para iniciar", tamX/2, tamY/1.1, amarillo, 20);
     }
     //PANTALLA 2 - ESTADO 1 - Iron-man en la nave perdido en el espacio
@@ -92,7 +102,7 @@ class AventuraGrafica {
     //PANTALLA 4 - ESTADO 3 - Pasar tiempo en la nave
     else if (estado == 3) {
       pantalla4();
-      //Texto
+      //Opción
       fuenteUna("Presionar 'R' para reiniciar", tamX/2, tamY/1.1, blanco, 20);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/2 - 165);
@@ -206,9 +216,21 @@ class AventuraGrafica {
     //PANTALLA 15 - ESTADO 14 - Créditos
     else if (estado == 14) {
       pantalla15();
-      //Texto
+      //Dialogo
+      fuenteDos("Horneado por Marcos. E. Juárez Agüero \n y Gustavo Perugini", width/2, mPosY - 100, rojo, 18);
+      fuenteDos("IDE: Processing.", width/2, mPosY - 50, violeta, 18);
+      fuenteDos("Un presente para los profesores Matias Jauregui \n Lorda y Tobías Albirosa (espero que cuando Thanos \n chasquee los dedos, sean del %50 de la población \n que no desaparece)", width/2, mPosY + 25, 255, 18);
+      fuenteDos("Tecnologia Multimedial 1 - COM. 2 UNLP - FDA", width/2, mPosY + 100, verde, 18);
+      //REINICIAR Dialogo
+      if (mPosY == height /24 - 200) {
+        mPosY = height/0.8;
+      }
+      //Opción
       fuenteUna("Presionar 'R' para volver a empezar", tamX/2, tamY/1.1, amarillo, 20);
     }
+
+    //-------- Actualizar valores estéticos --------
+    mPosY -= 1;
   }
 
   // ------------------------ EVENTOS PARA EL MOUSEPRESSED O CLICKED ------------------------
