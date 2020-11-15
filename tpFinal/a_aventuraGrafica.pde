@@ -19,7 +19,7 @@ class AventuraGrafica {
   //--------------- CONSTRUCTOR - SETUP DE LA CLASE ---------------
   AventuraGrafica() {
     //INICIAR LÓGICA DE ESTADO
-    estado = 13; 
+    estado = 0; 
     //IMAGENES
     //PANTALLAS
     estado1 = loadImage("estado1.png"); 
@@ -71,6 +71,8 @@ class AventuraGrafica {
       //Opciones
       image(encuadreOpcion, tamX/2 - 200, tamY/1.1);
       image(encuadreOpcion, tamX/2 + 200, tamY/1.1);
+      fuenteDos("Jugar en la \n nave", width/2 + 200, tamY/1.1, negro, 15);
+      fuenteDos("Fabricar \n teletransportacion", width/2 - 200, tamY/1.1, negro, 15);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/2 - 165);
       fuenteDos("Iron Man:", width/2 -180, height/2 - 250, amarillo, 18);
@@ -81,6 +83,7 @@ class AventuraGrafica {
       pantalla3();
       //Opciones
       image(encuadreOpcion, tamX/2, tamY/1.1);
+      fuenteDos("Marcar coordenadas", width/2, tamY/1.1, negro, 15);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/2 - 165);
       fuenteDos("Iron Man:", width/2 -180, height/2 - 250, amarillo, 18);
@@ -102,6 +105,8 @@ class AventuraGrafica {
       //Opciones
       image(encuadreOpcion, tamX/2 - 200, tamY/1.1);
       image(encuadreOpcion, tamX/2 + 200, tamY/1.1);
+      fuenteDos("Arreglar la \n nave", width/2 + 200, tamY/1.1, negro, 15);
+      fuenteDos("Fabricar \n máquina del tiempo", width/2 - 200, tamY/1.1, negro, 15);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/2 - 165);
       fuenteDos("Iron Man:", width/2 -180, height/2 - 255, amarillo, 18);
@@ -113,16 +118,19 @@ class AventuraGrafica {
       //Opciones
       image(encuadreOpcion, tamX/2 - 200, tamY/1.1);
       image(encuadreOpcion, tamX/2 + 200, tamY/1.1);
+      fuenteDos("Ver el futuro", width/2 + 200, tamY/1.1, negro, 15);
+      fuenteDos("Ver el pasado", width/2 - 200, tamY/1.1, negro, 15);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/2 - 165);
       fuenteDos("Iron Man:", width/2 -180, height/2 - 240, amarillo, 18);
-      fuenteDos("Me alegro de haber vislumbrado\n los avances de Emmet Brown \n en la ciencia del tiempo. \n ¿Crees que deberíamos ver \n el pasado o el futuro?", width/2, height/2 - 160, negro, 18);
+      fuenteDos("Me alegro de haber vislumbrado \n los avances de Emmet Brown \n en la ciencia del tiempo. \n ¿Crees que deberíamos ver \n el pasado o el futuro?", width/2, height/2 - 160, negro, 18);
     }
     //PANTALLA 7 - ESTADO 6 - Reparar la nave y viajar al espacio 
     else if (estado == 6) {
       pantalla7();
       //Opciones
       image(encuadreOpcion, tamX/2, tamY/1.1);
+      fuenteDos("Mandar señal\ny viajar", width/2, tamY/1.1, negro, 15);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/2 - 165);
       fuenteDos("Iron Man:", width/2 -180, height/2 - 240, amarillo, 18);
@@ -142,6 +150,7 @@ class AventuraGrafica {
       pantalla9();
       //Opciones
       image(encuadreOpcion, tamX/2, tamY/1.1);
+      fuenteDos("Ver lo ocurrido", width/2, tamY/1.1, negro, 15);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/2 - 165);
       fuenteDos("Iron Man:", width/2 -180, height/2 - 240, amarillo, 18);
@@ -152,6 +161,7 @@ class AventuraGrafica {
       pantalla10();
       //Opciones
       image(encuadreOpcion, tamX/2, tamY/1.1);
+      fuenteDos("'Enter'\npara jugar", width/2, tamY/1.1, negro, 15);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/2 - 165);
       fuenteDos("Narrador:", width/2 -180, height/2 - 250, blanco, 18);
