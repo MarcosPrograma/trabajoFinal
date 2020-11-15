@@ -1,19 +1,16 @@
 class IronmanAV {
   //--------------- CAMPOS ---------------
-  float xIronman, yIronman;  
   PImage ironman;
 
   //--------------- CONSTRUCTOR - SETUP DE LA CLASE ---------------
-  IronmanAV(float x, float y) {
-    xIronman = x;
-    yIronman = y;
+  IronmanAV() {
     //Cargar imágenes
     ironman = loadImage("ironmanAV.png");
   }
 
   //--------------- METODOS ---------------
   // DRAW DE LA CLASE
-  void dibujar() {
+  void dibujar(float xIronman, float yIronman) {
     image(ironman, xIronman, yIronman);
   }
 }

@@ -1,19 +1,16 @@
 class ThanosAV {
   //--------------- CAMPOS ---------------
-  float xThanos, yThanos; 
   PImage thanos;
 
   //--------------- CONSTRUCTOR - SETUP DE LA CLASE ---------------
-  ThanosAV(float x, float y) {
-    xThanos = x;
-    yThanos = y;
+  ThanosAV() {
     //Carga de imagenes
     thanos = loadImage("thanosAV.png");
   }
 
   //--------------- METODOS ---------------
   // DRAW DE LA CLASE
-  void dibujar(){
+  void dibujar(float xThanos, float yThanos){
     image(thanos, xThanos, yThanos);
   }
 }

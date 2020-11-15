@@ -17,12 +17,15 @@ class AventuraGrafica {
   float tamX = width; 
   float tamY = height;
   //Convocar a otra clase
-  Juego juego;
+  Juego juego; //Mini-juego
+  IronmanAV ironmanAV; //Protagonista == Aventura gráfica
+  ThanosAV thanosAV; //Enemigo == Aventura gráfica
+
 
   //--------------- CONSTRUCTOR - SETUP DE LA CLASE ---------------
   AventuraGrafica() {
     //INICIAR LÓGICA DE ESTADO
-    estado = 14; 
+    estado = 13; 
     //IMAGENES
     //PANTALLAS
     estado1 = loadImage("estado1.png"); 
@@ -57,6 +60,8 @@ class AventuraGrafica {
     pixel2 = createFont("Vdj.ttf", 18);
     //Declarar un nuevo Objeto == Llamar a otra clase
     juego = new Juego();
+    ironmanAV = new IronmanAV();
+    thanosAV = new ThanosAV();
   }
 
   //--------------- METODOS ---------------
@@ -112,6 +117,7 @@ class AventuraGrafica {
     //PANTALLA 5 - ESTADO 4 - Iron-Man en la tierra (elección)  
     else if (estado == 4) {
       pantalla5();
+      ironmanAV.dibujar(tamX/2, tamY/1.45);
       //Opciones
       image(encuadreOpcion, tamX/2 - 200, tamY/1.1);
       image(encuadreOpcion, tamX/2 + 200, tamY/1.1);
@@ -125,6 +131,7 @@ class AventuraGrafica {
     //PANTALLA 6 - ESTADO 5 - Crear una máquina del tiempo
     else if (estado == 5) {
       pantalla6();
+      ironmanAV.dibujar(tamX/1.2, tamY/1.45);
       //Opciones
       image(encuadreOpcion, tamX/2 - 200, tamY/1.1);
       image(encuadreOpcion, tamX/2 + 200, tamY/1.1);
@@ -138,6 +145,7 @@ class AventuraGrafica {
     //PANTALLA 7 - ESTADO 6 - Reparar la nave y viajar al espacio 
     else if (estado == 6) {
       pantalla7();
+      ironmanAV.dibujar(tamX/3.5, tamY/1.45);
       //Opciones
       image(encuadreOpcion, tamX/2, tamY/1.1);
       fuenteDos("Mandar señal\ny viajar", width/2, tamY/1.1, negro, 15);
@@ -149,6 +157,8 @@ class AventuraGrafica {
     //PANTALLA 8 - ESTADO 7 - Ver el pasado (Reinicio)
     else if (estado == 7) {
       pantalla8();
+      ironmanAV.dibujar(tamX/1.2, tamY/1.45);
+      //Opciones
       fuenteUna("Presionar 'R' para reiniciar", tamX/2, tamY/1.1, negro, 20);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/2 - 165);
@@ -158,6 +168,7 @@ class AventuraGrafica {
     //PANTALLA 9 - ESTADO 8 - Ver futuro (Hacia el final 1)
     else if (estado == 8) {
       pantalla9();
+      ironmanAV.dibujar(tamX/1.2, tamY/1.45);
       //Opciones
       image(encuadreOpcion, tamX/2, tamY/1.1);
       fuenteDos("Ver lo ocurrido", width/2, tamY/1.1, negro, 15);
@@ -169,6 +180,7 @@ class AventuraGrafica {
     //PANTALLA 10 - ESTADO 9 - Contextualización del juego (Confrontación entre Thanos y los Avengers)
     else if (estado == 9) {
       pantalla10();
+      ironmanAV.dibujar(tamX/1.2, tamY/1.45);
       //Opciones
       image(encuadreOpcion, tamX/2, tamY/1.1);
       fuenteDos("'Enter'\npara jugar", width/2, tamY/1.1, negro, 15);
@@ -186,6 +198,8 @@ class AventuraGrafica {
     //PANTALLA 12 - ESTADO 11 - Final 1 (Ver lo ocurrido)
     else if (estado == 11) {
       pantalla12();
+      ironmanAV.dibujar(tamX/1.2, tamY/1.45);
+      fuenteDos("¿?", tamX/1.2, tamY/1.78, negro, 20); 
       //Ir hacia los créditos
       fuenteUna("Presionar 'Barra espaciadora' para \n ver el reconocimiento", tamX/2, tamY/1.1, amarillo, 20);
       //Dialogo
@@ -196,6 +210,7 @@ class AventuraGrafica {
     //PANTALLA 13 - ESTADO 12 - Final 2 (Ganan los avengers)
     else if (estado == 12) {
       pantalla13();
+      ironmanAV.dibujar(tamX/1.2, tamY/1.45);
       //Ir hacia los créditos
       fuenteUna("Presionar 'Barra espaciadora' para \n ver el reconocimiento", tamX/2, tamY/1.1, blanco, 20);
       //Dialogo
@@ -206,6 +221,7 @@ class AventuraGrafica {
     //PANTALLA 14 - ESTADO 13 - Final 3 (Gana Thanos)
     else if (estado == 13) {
       pantalla14();
+      thanosAV.dibujar(tamX/1.2, tamY/1.45);
       //Ir hacia los créditos
       fuenteUna("Presionar 'Barra espaciadora' para \n ver el reconocimiento", tamX/2, tamY/1.1, blanco, 20);
       //Dialogo
@@ -301,12 +317,16 @@ class AventuraGrafica {
     else if (estado == 3 || estado == 7 || estado == 14) { 
       if ( key == 'r' || key == 'R') {
         estado = 0;
+        mPosY = -200;
+        println("Las variables se han reseteado");
       }
     }
     //CREDITOS
     else if (estado == 11 || estado == 12 || estado == 13) {
       if (key == ' ') {
         estado = 14;
+        mPosY = -200;
+        println("Las variables se han reseteado");
       }
     }
   }
