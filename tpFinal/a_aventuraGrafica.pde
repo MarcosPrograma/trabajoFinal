@@ -10,7 +10,12 @@ class AventuraGrafica {
   color amarillo, rojo, negro, verde, violeta, blanco;
   //--------------- ESTÉTICA ---------------
   //Créditos
+  int cA = 10;
   float mPosY = height/2;
+  //Arays para animaciones
+  float[] x = new float[cA];
+  float[] y = new float[cA];
+  float[] v = new float[cA];
   //--------------- CAMPOS ---------------
   int estado = 0;
   //Resize
@@ -25,7 +30,7 @@ class AventuraGrafica {
   //--------------- CONSTRUCTOR - SETUP DE LA CLASE ---------------
   AventuraGrafica() {
     //INICIAR LÓGICA DE ESTADO
-    estado = 13; 
+    estado = 14; 
     //IMAGENES
     //PANTALLAS
     estado1 = loadImage("estado1.png"); 
@@ -232,6 +237,9 @@ class AventuraGrafica {
     //PANTALLA 15 - ESTADO 14 - Créditos
     else if (estado == 14) {
       pantalla15();
+      //Título == IRON SOLDIER = LA ULTIMA POSIBILIDAD
+      fuenteUna("Iron Soldier", tamX/2, tamY/7, amarillo, 40);
+      fuenteDos("la última posibilidad", tamX/2, tamY/12.5, blanco, 14);
       //Dialogo
       fuenteDos("Horneado por Marcos. E. Juárez Agüero \n y Gustavo Perugini", width/2, mPosY - 100, rojo, 18);
       fuenteDos("IDE: Processing.", width/2, mPosY - 50, violeta, 18);
@@ -317,7 +325,7 @@ class AventuraGrafica {
     else if (estado == 3 || estado == 7 || estado == 14) { 
       if ( key == 'r' || key == 'R') {
         estado = 0;
-        mPosY = -200;
+        mPosY = height /24 - 200;
         println("Las variables se han reseteado");
       }
     }
@@ -325,7 +333,7 @@ class AventuraGrafica {
     else if (estado == 11 || estado == 12 || estado == 13) {
       if (key == ' ') {
         estado = 14;
-        mPosY = -200;
+        mPosY = height /24 - 200;
         println("Las variables se han reseteado");
       }
     }
