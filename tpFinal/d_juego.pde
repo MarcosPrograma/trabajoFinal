@@ -15,8 +15,6 @@ class Juego {
 
   //--------------- CONSTRUCTOR - SETUP DE LA CLASE ---------------
   Juego() {
-    //Lógica de estado
-    //aventuraGrafica.estado == 10
     //DECLARAR LAS DEMAS CLASES
     for ( int i = 0; i < enemigos.length; i++ ) {
       enemigos[i] = new Enemigos();

@@ -10,12 +10,17 @@ class AventuraGrafica {
   color amarillo, rojo, negro, verde, violeta, blanco;
   //--------------- ESTÉTICA ---------------
   //Créditos
-  int cA = 10;
   float mPosY = height/2;
   //Arays para animaciones
+  int cA = 10;
   float[] x = new float[cA];
   float[] y = new float[cA];
+  float[] t = new float[cA];
   float[] v = new float[cA];
+  PImage[] binarios = new PImage[cA];
+  PImage[] meteoro = new PImage[cA];
+  //--------------- SONIDO ---------------
+  SoundFile musicaFondo, musicaGanar, musicaPerder;
   //--------------- CAMPOS ---------------
   int estado = 0;
   //Resize
@@ -28,9 +33,9 @@ class AventuraGrafica {
 
 
   //--------------- CONSTRUCTOR - SETUP DE LA CLASE ---------------
-  AventuraGrafica() {
+  AventuraGrafica(PApplet sound) {
     //INICIAR LÓGICA DE ESTADO
-    estado = 14; 
+    estado = 0; 
     //IMAGENES
     //PANTALLAS
     estado1 = loadImage("estado1.png"); 
@@ -63,10 +68,33 @@ class AventuraGrafica {
     //Fuentes
     pixel = createFont("UAV-OSD-Mono.ttf", 18);
     pixel2 = createFont("Vdj.ttf", 18);
+    //ESTETICA
+    //Iniciar animaciones = primeros valores
+    //Animaciones == inicio - Num. binarios
+    for ( int i = 0; i < cA; i++ ) {
+      x[i] = random(width/24-100, width/0.9);
+      y[i] = height /24 - 200;
+      t[i] = random( 0, 15 );
+      v[i] = random( 0.1, 2.5 );
+      binarios[i] = loadImage( "ceroyunos.png" );
+    }
+    //Animaciones == inicio - Meteoritos
+    for ( int i = 0; i < cA; i++ ) {
+      x[i] = random(width/24-100, width/0.9);
+      y[i] = height /24 - 200;
+      t[i] = random( 0, 15 );
+      v[i] = random( 0.1, 2.5 );
+      meteoro[i] = loadImage( "meteorito.png" );
+    }
     //Declarar un nuevo Objeto == Llamar a otra clase
     juego = new Juego();
     ironmanAV = new IronmanAV();
     thanosAV = new ThanosAV();
+    //Sonido 
+    musicaFondo = new SoundFile(sound, "Getaway Powder - DJ Freedem.mp3");
+    //musicaGanar = new SoundFile(sound, "Saving the World - Aaron Kenny.mp3");
+    //musicaPerder = new SoundFile(sound, "Through and Through - Amulets.mp3");
+    musicaFondo.loop();
   }
 
   //--------------- METODOS ---------------
@@ -161,7 +189,20 @@ class AventuraGrafica {
     }
     //PANTALLA 8 - ESTADO 7 - Ver el pasado (Reinicio)
     else if (estado == 7) {
-      pantalla8();
+      pantalla8(); 
+      //Animaciones
+      //Actualización de los meteoritos
+      for (int i = 0; i < cA; i++) {
+        y[i] = y[i] + t[i];
+        if (y[i] > height/1.3 ) { //Fijarte el N° DEL SUELO
+          reciclar(i);
+        }
+      }
+      //Dibujar meteoritos
+      for ( int j = 0; j < cA; j++ ) {
+        image( meteoro[j], x[j], y[j] );
+      }
+      //Mostrar a Ironman
       ironmanAV.dibujar(tamX/1.2, tamY/1.45);
       //Opciones
       fuenteUna("Presionar 'R' para reiniciar", tamX/2, tamY/1.1, negro, 20);
@@ -173,6 +214,19 @@ class AventuraGrafica {
     //PANTALLA 9 - ESTADO 8 - Ver futuro (Hacia el final 1)
     else if (estado == 8) {
       pantalla9();
+      //Animaciones
+      //Animaciones de lluvia de binarios
+      for ( int i = 0; i < cA; i++ ) {
+        y[i] = y[i] + t[i];
+        if (y[i] > height/1.3 ) {
+          reciclar( i );
+        }
+      }
+      //Dibujar lluvia de binarios
+      for ( int j = 0; j < cA; j++ ) {
+        image( binarios[j], x[j], y[j] );
+      }
+      //Mostrar a Ironman
       ironmanAV.dibujar(tamX/1.2, tamY/1.45);
       //Opciones
       image(encuadreOpcion, tamX/2, tamY/1.1);
@@ -202,7 +256,20 @@ class AventuraGrafica {
     }
     //PANTALLA 12 - ESTADO 11 - Final 1 (Ver lo ocurrido)
     else if (estado == 11) {
-      pantalla12();
+      pantalla12();    
+      //Animaciones
+      //Animaciones de lluvia de binarios
+      for ( int i = 0; i < cA; i++ ) {
+        y[i] = y[i] + t[i];
+        if (y[i] > height/1.3 ) {
+          reciclar( i );
+        }
+      }
+      //Dibujar lluvia de binarios
+      for ( int j = 0; j < cA; j++ ) {
+        image( binarios[j], x[j], y[j] );
+      }
+      //Dibujar a Ironman
       ironmanAV.dibujar(tamX/1.2, tamY/1.45);
       fuenteDos("¿?", tamX/1.2, tamY/1.78, negro, 20); 
       //Ir hacia los créditos
@@ -271,6 +338,7 @@ class AventuraGrafica {
     if  ( estado == 0 ) {  
       if ( key == ' ' ) {
         estado = 1;
+        //musicaFondo.stop();
       }
     }
     //PANTALLA 2 - Tony se encuentra en la Nave 
@@ -322,7 +390,7 @@ class AventuraGrafica {
       }
     }
     //REINICIAR
-    else if (estado == 3 || estado == 7 || estado == 14) { 
+    else if (estado == 3 || estado == 7) { 
       if ( key == 'r' || key == 'R') {
         estado = 0;
         mPosY = height /24 - 200;
@@ -335,6 +403,18 @@ class AventuraGrafica {
         estado = 14;
         mPosY = height /24 - 200;
         println("Las variables se han reseteado");
+      }
+    }
+    //VOLVER a EMPEZAR
+    else if (estado == 14) {
+      if (key == 'r' || key == 'R') {
+        estado = 0;
+        mPosY = height /24 - 200;
+        println("Las variables se han reseteado");
+        //Reiniciar el sonido
+        //musicaGanar.stop();
+        //musicaPerder.stop();
+        //musicaFondo.play();
       }
     }
   }

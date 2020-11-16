@@ -9,6 +9,7 @@ AVENTURA GRÁFICA + MINIJUEGO.
 */
 
 //IMPORTAR EL SONIDO EN FORMA GLOBAL
+import processing.sound.*;
 
 //DECLARAR la clase Aventura Grafica
 AventuraGrafica aventuraGrafica;
@@ -21,7 +22,7 @@ void setup(){
   //HACER EL USO DEL THIS PARA EL SONIDO
   
   //INICIAR la clase aventuraGrafica
-  aventuraGrafica = new AventuraGrafica();
+  aventuraGrafica = new AventuraGrafica(this);
 }
 
 //Hacer el LLLAMADO de cada uno de los METODOS
