@@ -131,9 +131,9 @@ class AventuraGrafica {
       fuenteDos("Jugar en la \n nave", width/2 + 200, tamY/1.1, negro, 15);
       fuenteDos("Fabricar \n teletransportacion", width/2 - 200, tamY/1.1, negro, 15);
       //Dialogo
-      image(encuadreDialogo, tamX/2, tamY/2 - 165);
-      fuenteDos("Iron Man:", width/2 -180, height/2 - 250, amarillo, 18);
-      fuenteDos("Nuestra nave tiene varios \n problemas y no contamos con los \n recursos necesarios para \n repararla, pero tengo mis \n herramientas esenciales.", width/2, height/2 - 175, negro, 18);
+      image(encuadreDialogo, tamX/2, tamY/5);
+      fuenteDos("Iron Man:", width/3.6, height/13, amarillo, 18);
+      fuenteDos("Nuestra nave tiene varios \n problemas y no contamos con los \n recursos necesarios para \n repararla, pero tengo mis \n herramientas esenciales.", width/2, height/5, negro, 18);
     }
     //PANTALLA 3 - ESTADO 2 - Marcar coordenadas
     else if (estado == 2) {
@@ -142,9 +142,9 @@ class AventuraGrafica {
       image(encuadreOpcion, tamX/2, tamY/1.1);
       fuenteDos("Marcar coordenadas", width/2, tamY/1.1, negro, 15);
       //Dialogo
-      image(encuadreDialogo, tamX/2, tamY/2 - 165);
-      fuenteDos("Iron Man:", width/2 -180, height/2 - 250, amarillo, 18);
-      fuenteDos("Con la ayuda de estas y mi \n conocimiento avanzado en ingeniera, \n podríamos utilizar mi Smartphone \n y crear un dispositivo de \n teletransportación, y de esta \n manera ir a la tierra", width/2, height/2 - 160, negro, 18);
+      image(encuadreDialogo, tamX/2, tamY/5);
+      fuenteDos("Iron Man:", width/3.6, height/13, amarillo, 18);
+      fuenteDos("Con la ayuda de estas y mi \n conocimiento avanzado en ingeniera, \n podríamos utilizar mi Smartphone \n y crear un dispositivo de \n teletransportación, y de esta \n manera ir a la tierra", width/2, height/4.5, negro, 18);
     }
     //PANTALLA 4 - ESTADO 3 - Pasar tiempo en la nave
     else if (estado == 3) {
@@ -152,9 +152,9 @@ class AventuraGrafica {
       //Opción
       fuenteUna("Presionar 'R' para reiniciar", tamX/2, tamY/1.1, blanco, 20);
       //Dialogo
-      image(encuadreDialogo, tamX/2, tamY/2 - 165);
-      fuenteDos("Iron Man:", width/2 -180, height/2 - 250, amarillo, 18);
-      fuenteDos("Muy divertido, pero \n nuestra misión es otra…", width/2, height/2 - 175, negro, 18);
+      image(encuadreDialogo, tamX/2, tamY/5);
+      fuenteDos("Iron Man:", width/3.6, height/13, amarillo, 18);
+      fuenteDos("Muy divertido, pero \n nuestra misión es otra…", width/2, height/4, negro, 18);
     }
     //PANTALLA 5 - ESTADO 4 - Iron-Man en la tierra (elección)  
     else if (estado == 4) {
@@ -166,9 +166,9 @@ class AventuraGrafica {
       fuenteDos("Arreglar la \n nave", width/2 + 200, tamY/1.1, negro, 15);
       fuenteDos("Fabricar \n máquina del tiempo", width/2 - 200, tamY/1.1, negro, 15);
       //Dialogo
-      image(encuadreDialogo, tamX/2, tamY/2 - 165);
-      fuenteDos("Iron Man:", width/2 -180, height/2 - 255, amarillo, 18);
-      fuenteDos("Se me ocurren dos soluciones,\n la primera es construir una \n máquina del tiempo, e intentar \n encontrar una manera más \n fácil de ganar. La segunda \n es reparar la nave y buscar \n a Thanos en el universo.", width/2, height/2 - 160, negro, 18);
+      image(encuadreDialogo, tamX/2, tamY/5);
+      fuenteDos("Iron Man:", width/3.6, height/13, amarillo, 18);
+      fuenteDos("Se me ocurren dos soluciones,\n la primera es construir una \n máquina del tiempo, e intentar \n encontrar una manera más \n fácil de ganar. La segunda \n es reparar la nave y buscar \n a Thanos en el universo.", width/2, height/4.5, negro, 18);
     }
     //PANTALLA 6 - ESTADO 5 - Crear una máquina del tiempo
     else if (estado == 5) {
@@ -180,9 +180,9 @@ class AventuraGrafica {
       fuenteDos("Ver el futuro", width/2 + 200, tamY/1.1, negro, 15);
       fuenteDos("Ver el pasado", width/2 - 200, tamY/1.1, negro, 15);
       //Dialogo
-      image(encuadreDialogo, tamX/2, tamY/2 - 165);
-      fuenteDos("Iron Man:", width/2 -180, height/2 - 240, amarillo, 18);
-      fuenteDos("Me alegro de haber vislumbrado \n los avances de Emmet Brown \n en la ciencia del tiempo. \n ¿Crees que deberíamos ver \n el pasado o el futuro?", width/2, height/2 - 160, negro, 18);
+      image(encuadreDialogo, tamX/2, tamY/5);
+      fuenteDos("Iron Man:", width/3.6, height/13, amarillo, 18);
+      fuenteDos("Me alegro de haber vislumbrado \n los avances de Emmet Brown \n en la ciencia del tiempo. \n ¿Crees que deberíamos ver \n el pasado o el futuro?", width/2, height/5, negro, 18);
     }
     //PANTALLA 7 - ESTADO 6 - Reparar la nave y viajar al espacio 
     else if (estado == 6) {
@@ -192,9 +192,9 @@ class AventuraGrafica {
       image(encuadreOpcion, tamX/2, tamY/1.1);
       fuenteDos("Mandar señal\ny viajar", width/2, tamY/1.1, negro, 15);
       //Dialogo
-      image(encuadreDialogo, tamX/2, tamY/2 - 165);
-      fuenteDos("Iron Man:", width/2 -180, height/2 - 240, amarillo, 18);
-      fuenteDos("Estando en casa esto es mucho \n más fácil… \n Deberíamos mandar una señal \n a los vengadores", width/2, height/2 - 160, negro, 18);
+      image(encuadreDialogo, tamX/2, tamY/5);
+      fuenteDos("Iron Man:", width/3.6, height/13, amarillo, 18);
+      fuenteDos("Estando en casa esto es mucho \n más fácil… \n Deberíamos mandar una señal \n a los vengadores", width/2, height/5, negro, 18);
     }
     //PANTALLA 8 - ESTADO 7 - Ver el pasado (Reinicio)
     else if (estado == 7) {
@@ -216,9 +216,9 @@ class AventuraGrafica {
       //Opciones
       fuenteUna("Presionar 'R' para reiniciar", tamX/2, tamY/1.1, negro, 20);
       //Dialogo
-      image(encuadreDialogo, tamX/2, tamY/2 - 165);
-      fuenteDos("Iron Man:", width/2 -180, height/2 - 240, amarillo, 18);
-      fuenteDos("Esto le hubiese servido \n a los objetivos de Jhon Hammond, \n pero no para nuestros fines.", width/2, height/2 - 160, negro, 18);
+      image(encuadreDialogo, tamX/2, tamY/5);
+      fuenteDos("Iron Man:", width/3.6, height/13, amarillo, 18);
+      fuenteDos("Esto le hubiese servido \n a los objetivos de Jhon Hammond, \n pero no para nuestros fines.", width/2, height/5, negro, 18);
     }
     //PANTALLA 9 - ESTADO 8 - Ver futuro (Hacia el final 1)
     else if (estado == 8) {
@@ -241,9 +241,9 @@ class AventuraGrafica {
       image(encuadreOpcion, tamX/2, tamY/1.1);
       fuenteDos("Ver lo ocurrido", width/2, tamY/1.1, negro, 15);
       //Dialogo
-      image(encuadreDialogo, tamX/2, tamY/2 - 165);
-      fuenteDos("Iron Man:", width/2 -180, height/2 - 240, amarillo, 18);
-      fuenteDos("¿¡Qué rayos ocurrió aquí!? \n ¿¡Thanos fue derrotado!?", width/2, height/2 - 160, negro, 18);
+      image(encuadreDialogo, tamX/2, tamY/5);
+      fuenteDos("Iron Man:", width/3.6, height/13, amarillo, 18);
+      fuenteDos("¿¡Qué rayos ocurrió aquí!? \n ¿¡Thanos fue derrotado!?", width/2, height/5, negro, 18);
     }
     //PANTALLA 10 - ESTADO 9 - Contextualización del juego (Confrontación entre Thanos y los Avengers)
     else if (estado == 9) {
@@ -253,9 +253,9 @@ class AventuraGrafica {
       image(encuadreOpcion, tamX/2, tamY/1.1);
       fuenteDos("'Enter'\npara jugar", width/2, tamY/1.1, negro, 15);
       //Dialogo
-      image(encuadreDialogo, tamX/2, tamY/2 - 165);
-      fuenteDos("Narrador:", width/2 -180, height/2 - 250, blanco, 18);
-      fuenteDos("Has viajado al planeta Titán \n y deberás pelear mano a mano \n contra Thanos. Pulsa 'W' y \n 'S' para desplazarte. Utiliza el \n click derecho para mover el \n plasma. ¡OJO, QUE NO TE TOQUEN SUS \n ALIADOS!", width/2, height/2 - 160, negro, 18);
+      image(encuadreDialogo, tamX/2, tamY/5);
+      fuenteDos("Narrador:", width/3.6, height/13, blanco, 18);
+      fuenteDos("Has viajado al planeta Titán \n y deberás pelear mano a mano \n contra Thanos. Pulsa 'W' y \n 'S' para desplazarte. Utiliza el \n click derecho para mover el \n plasma. ¡OJO, QUE NO TE TOQUEN SUS \n ALIADOS!", width/2, height/4.5, negro, 18);
     }
     //PANTALLA 11 - ESTADO 10 - Minijuego
     else if (estado == 10) {
@@ -287,9 +287,9 @@ class AventuraGrafica {
       //Ir hacia los créditos
       fuenteUna("Presionar 'Barra espaciadora' para \n ver el reconocimiento", tamX/2, tamY/1.1, amarillo, 20);
       //Dialogo
-      image(encuadreDialogo, tamX/2, tamY/2 - 165);
-      fuenteDos("Narrador:", width/2 -180, height/2 - 250, blanco, 18);
-      fuenteDos("En un futuro muy lejano… El \n malévolo gigante quedo hecho \n cenizas a causa de un resfriado. \n Se comenta que un tal Tony Stark \n generó un arma biológica que \n destruyó su sistema inmunológico… \n Lo demás vino solo.", width/2, height/2 - 160, negro, 18);
+      image(encuadreDialogo, tamX/2, tamY/5);
+      fuenteDos("Narrador:", width/3.6, height/13, blanco, 18);
+      fuenteDos("En un futuro muy lejano… El \n malévolo gigante quedo hecho \n cenizas a causa de un resfriado. \n Se comenta que un tal Tony Stark \n generó un arma biológica que \n destruyó su sistema inmunológico… \n Lo demás vino solo.", width/2, height/4.5, negro, 18);
     }
     //PANTALLA 13 - ESTADO 12 - Final 2 (Ganan los avengers)
     else if (estado == 12) {
@@ -299,9 +299,9 @@ class AventuraGrafica {
       //Ir hacia los créditos
       fuenteUna("Presionar 'Barra espaciadora' para \n ver el reconocimiento", tamX/2, tamY/1.1, blanco, 20);
       //Dialogo
-      image(encuadreDialogo, tamX/2, tamY/2 - 165);
-      fuenteDos("Narrador:", width/2 -180, height/2 - 250, blanco, 18);
-      fuenteDos("Posterior a una pelea sumamente \n reñida por parte de ambos bandos, \n el grupo de héroes consiguen \n hacerse con la única probabilidad \n de quedarse con la victoria… \n ¡Vengadores unidos jamás serán \n vencidos!", width/2, height/2 - 160, negro, 18);
+      image(encuadreDialogo, tamX/2, tamY/5);
+      fuenteDos("Narrador:", width/3.6, height/13, blanco, 18);
+      fuenteDos("Posterior a una pelea sumamente \n reñida por parte de ambos bandos, \n el grupo de héroes consiguen \n hacerse con la única probabilidad \n de quedarse con la victoria… \n ¡Vengadores unidos jamás serán \n vencidos!", width/2, height/4.5, negro, 18);
     }
     //PANTALLA 14 - ESTADO 13 - Final 3 (Gana Thanos)
     else if (estado == 13) {
@@ -311,9 +311,9 @@ class AventuraGrafica {
       //Ir hacia los créditos
       fuenteUna("Presionar 'Barra espaciadora' para \n ver el reconocimiento", tamX/2, tamY/1.1, blanco, 20);
       //Dialogo
-      image(encuadreDialogo, tamX/2, tamY/2 - 165);
-      fuenteDos("Thanos:", width/2 -180, height/2 - 250, violeta, 18);
-      fuenteDos("A pesar de todo, fue un acto \n honorable por parte del Sr. \n Stark… Una pequeña prueba de que \n este humano tiene corazón.", width/2, height/2 - 160, negro, 18);
+      image(encuadreDialogo, tamX/2, tamY/5);
+      fuenteDos("Thanos:", width/3.6, height/13, violeta, 18);
+      fuenteDos("A pesar de todo, fue un acto \n honorable por parte del Sr. \n Stark… Una pequeña prueba de que \n este humano tiene corazón.", width/2, height/5, negro, 18);
     }
     //PANTALLA 15 - ESTADO 14 - Créditos
     else if (estado == 14) {
