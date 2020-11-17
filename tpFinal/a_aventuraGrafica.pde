@@ -251,12 +251,15 @@ class AventuraGrafica {
     }
     //PANTALLA 11 - ESTADO 10 - Minijuego
     else if (estado == 10) {
+      juego.jugando();
+      juego.jugando = true;
       juego.dibujar();
       juego.movimiento();
       juego.actualizar();
     }
     //PANTALLA 12 - ESTADO 11 - Final 1 (Ver lo ocurrido)
     else if (estado == 11) {
+      juego.jugando = false;
       pantalla12();    
       //Animaciones
       //Animaciones de lluvia de binarios
@@ -282,6 +285,7 @@ class AventuraGrafica {
     }
     //PANTALLA 13 - ESTADO 12 - Final 2 (Ganan los avengers)
     else if (estado == 12) {
+      juego.jugando = false;
       pantalla13();
       ironmanAV.dibujar(tamX/1.2, tamY/1.45);
       //Ir hacia los créditos
@@ -293,6 +297,7 @@ class AventuraGrafica {
     }
     //PANTALLA 14 - ESTADO 13 - Final 3 (Gana Thanos)
     else if (estado == 13) {
+      juego.jugando = false;
       pantalla14();
       thanosAV.dibujar(tamX/1.2, tamY/1.45);
       //Ir hacia los créditos
@@ -304,6 +309,7 @@ class AventuraGrafica {
     }
     //PANTALLA 15 - ESTADO 14 - Créditos
     else if (estado == 14) {
+      juego.jugando = false;
       pantalla15();
       //Título == IRON SOLDIER = LA ULTIMA POSIBILIDAD
       fuenteUna("Iron Soldier", tamX/2, tamY/7, amarillo, 40);

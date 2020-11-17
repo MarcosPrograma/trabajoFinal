@@ -5,6 +5,7 @@ class Proyectil {
   float movProyectil;
   //IMAGENES
   PImage proyectil;
+  boolean jugando = false;
 
   //--------------- CONSTRUCTOR - SETUP DE LA CLASE ---------------
   Proyectil() {
@@ -23,6 +24,6 @@ class Proyectil {
 
   //Movimiento del proyectil
   void disparar() {
-    xProyectil = xProyectil + 1;
+    xProyectil = xProyectil + movProyectil;
   }
 }

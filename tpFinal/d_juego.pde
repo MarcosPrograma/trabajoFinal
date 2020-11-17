@@ -5,10 +5,13 @@ class Juego {
   //Resize
   float tamX = width;
   float tamY = height;
+  //Evaluacion start y end del juego
+  boolean jugando = false;
   //LLAMAR A LAS DEMAS CLASES QUE ESTARAN DENTRO DEL JUEGO
   //Protagonista e enemigo principal
   IronmanJ jugador;
   ThanosJ thanos;
+  Proyectil proyectil;
   // Arreglo de Enemigos == Naves enemigas
   int c = 5;
   Enemigos[] enemigos = new Enemigos[c];
@@ -22,6 +25,7 @@ class Juego {
     }
     thanos = new ThanosJ();
     jugador = new IronmanJ();
+    proyectil = new Proyectil();
     //Carga de imagenes
     estado11 = loadImage("estado11.png");
   }  
@@ -64,6 +68,17 @@ class Juego {
       //---- Colisión de  los objetos ----
       thanos.destruir(jugador.proyectil);
       jugador.destruir(enemigos);
+    }
+  }
+
+  //RESET DEL JUEGO
+  void jugando() {
+    if (jugando == false) {
+      jugador.yIronman = height/2;
+      proyectil.xProyectil = width/6 + 50;
+      for ( int i = 0; i < enemigos.length; i++ ) { 
+      enemigos[i].reciclar();
+      }
     }
   }
 
