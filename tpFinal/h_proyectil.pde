@@ -12,7 +12,7 @@ class Proyectil {
     //Declarar las variables
     xProyectil = width/6 + 50;
     yProyectil = height/2;
-    movProyectil = 2;
+    movProyectil = 3;
     //Carga de imagenes
     proyectil = loadImage("proyectilRedondo.png");
   }

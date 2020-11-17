@@ -17,7 +17,7 @@ void fuenteDos(String text, float x, float y, color c, int t) {
   popStyle();
 }
 
-//-------------------- Reciclar VALORES de forma reutilizable --------------------
+//-------------------- Reciclar VALORES de forma reutilizable = Animaciones meteoritos y lluvia de binarios --------------------
 void reciclar( int r ) {
   aventuraGrafica.x[r] = random(width/24-100, width/0.9);
   aventuraGrafica.y[r] = height /24 - 200;

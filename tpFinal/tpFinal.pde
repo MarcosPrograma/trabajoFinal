@@ -16,16 +16,14 @@ AventuraGrafica aventuraGrafica;
 
 void setup() {
   //fullScreen();
-  //size(1200, 720); //resize = uso de variables o width/height
+  //size(1200, 720); 
   size(800, 600);
 
-  //HACER EL USO DEL THIS PARA EL SONIDO
-
   //INICIAR la clase aventuraGrafica
-  aventuraGrafica = new AventuraGrafica(this);
+  aventuraGrafica = new AventuraGrafica(this); //Haciendo USO del THIS para acceder al Sound
 }
 
-//Hacer el LLLAMADO de cada uno de los METODOS
+//Hacer el LLLAMADO del METODO
 void draw() {
   //CONVOCAR la visualización de la aventuraGrafica
   aventuraGrafica.dibujar();

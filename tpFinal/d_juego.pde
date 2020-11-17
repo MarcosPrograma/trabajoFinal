@@ -75,7 +75,7 @@ class Juego {
   void jugando() {
     if (jugando == false) {
       jugador.yIronman = height/2;
-      proyectil.xProyectil = width/6 + 50;
+      //proyectil.xProyectil = width/6 + 50;
       for ( int i = 0; i < enemigos.length; i++ ) { 
       enemigos[i].reciclar();
       }

@@ -53,6 +53,7 @@ class IronmanJ {
       if (d < xIronman/2 && d < yIronman/2) {
         aventuraGrafica.estado = 13;
         yIronman = height/2;
+        proyectil.xProyectil = width/6 + 50;
         e[i].reciclar();     
         println("perdiste");
       }
