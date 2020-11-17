@@ -104,10 +104,11 @@ class AventuraGrafica {
     if (estado == 0) {
       pantalla1();
       //Dialogo
-      fuenteDos( "En algún lugar del recóndito espacio, se encuentra \n Tony Stark vagando en su nave averiada, \n este mismo debe volver al planeta tierra \n para poder salvar al mundo de las garras \n del gigante malévolo “Thanos”, el cual tiene \n en mente destruir a la mitad de la población \n con su guante y las gemas del infinito.", width/2, mPosY, 255, 18);
-      fuenteDos("¿Estarías dispuesto a ayudar a Iron Man \n en tomar las decisiones correctas? \n Solo tú puedes salvar el mundo.", width/2, mPosY + 150, 255, 18);
+      fuenteDos( "En algún lugar del recóndito espacio, se encuentra \n Tony Stark vagando en su nave averiada, \n este mismo debe volver al planeta tierra \n para poder salvar al mundo de las garras \n del gigante malévolo “Thanos”, el cual tiene \n en mente destruir a la mitad de la población \n con su guante y las gemas del infinito.", width/2, mPosY, blanco, 18);
+      fuenteDos("¿Estarías dispuesto a ayudar a Iron Man \n en tomar las decisiones correctas? \n Solo tú puedes salvar el mundo.", width/2, mPosY + 150, blanco, 18);
+      fuenteDos("Emplea las flechas de tu teclado para desplazarte \n por la Aventura Gráfica.", width/2, mPosY + 225, verde, 18);
       //REINICIAR Dialogo
-      if (mPosY == height /24 - 200) {
+      if (mPosY == height /24 - 300) {
         mPosY = height/0.8;
       }
       //Opción
@@ -313,7 +314,7 @@ class AventuraGrafica {
       fuenteDos("Un presente para los profesores Matias Jauregui \n Lorda y Tobías Albirosa (espero que cuando Thanos \n chasquee los dedos, sean del %50 de la población \n que no desaparece)", width/2, mPosY + 25, 255, 18);
       fuenteDos("Tecnologia Multimedial 1 - COM. 2 UNLP - FDA", width/2, mPosY + 100, verde, 18);
       //REINICIAR Dialogo
-      if (mPosY == height /24 - 200) {
+      if (mPosY == height /24 - 300) {
         mPosY = height/0.8;
       }
       //Opción
@@ -393,7 +394,7 @@ class AventuraGrafica {
     else if (estado == 3 || estado == 7) { 
       if ( key == 'r' || key == 'R') {
         estado = 0;
-        mPosY = height /24 - 200;
+        mPosY = height /24 - 300;
         println("Las variables se han reseteado");
       }
     }
@@ -401,7 +402,7 @@ class AventuraGrafica {
     else if (estado == 11 || estado == 12 || estado == 13) {
       if (key == ' ') {
         estado = 14;
-        mPosY = height /24 - 200;
+        mPosY = height /24 - 300;
         println("Las variables se han reseteado");
       }
     }
@@ -409,7 +410,7 @@ class AventuraGrafica {
     else if (estado == 14) {
       if (key == 'r' || key == 'R') {
         estado = 0;
-        mPosY = height /24 - 200;
+        mPosY = height /24 - 300;
         println("Las variables se han reseteado");
         //Reiniciar el sonido
         //musicaGanar.stop();

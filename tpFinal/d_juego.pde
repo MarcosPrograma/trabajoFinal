@@ -18,6 +18,7 @@ class Juego {
     //DECLARAR LAS DEMAS CLASES
     for ( int i = 0; i < enemigos.length; i++ ) {
       enemigos[i] = new Enemigos();
+      enemigos[i].reciclar(); //Comenzar desde 0
     }
     thanos = new ThanosJ();
     jugador = new IronmanJ();

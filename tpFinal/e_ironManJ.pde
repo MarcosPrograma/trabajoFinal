@@ -52,6 +52,8 @@ class IronmanJ {
       float d = dist(xIronman, yIronman, e[i].xEnemigos, e[i].yEnemigos);
       if (d < xIronman/2 && d < yIronman/2) {
         aventuraGrafica.estado = 13;
+        yIronman = height/2;
+        e[i].reciclar();     
         println("perdiste");
       }
     }
