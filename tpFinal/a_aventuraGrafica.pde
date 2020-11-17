@@ -20,7 +20,8 @@ class AventuraGrafica {
   PImage[] binarios = new PImage[cA];
   PImage[] meteoro = new PImage[cA];
   //--------------- SONIDO ---------------
-  SoundFile musicaFondo, musicaGanar, musicaPerder;
+  SoundFile musicaFondo, musicaJuego, musicaGanar, musicaPerder;
+  SoundFile soyInevitable, soyIronman, disparo;
   //--------------- CAMPOS ---------------
   int estado = 0;
   //Resize
@@ -90,11 +91,18 @@ class AventuraGrafica {
     juego = new Juego();
     ironmanAV = new IronmanAV();
     thanosAV = new ThanosAV();
-    //Sonido 
+    //-------- Sonido (¡LIBRERIA GRATUITA DE YOUTUBE!) -------- 
+    //Musica de fondo según el contexto
     musicaFondo = new SoundFile(sound, "Getaway Powder - DJ Freedem.mp3");
-    //musicaGanar = new SoundFile(sound, "Saving the World - Aaron Kenny.mp3");
-    //musicaPerder = new SoundFile(sound, "Through and Through - Amulets.mp3");
-    musicaFondo.loop();
+    musicaJuego = new SoundFile(sound, "Desert Brawl - Vans in Japan.mp3");
+    musicaGanar = new SoundFile(sound, "Saving the World - Aaron Kenny.mp3");
+    musicaPerder = new SoundFile(sound, "Through and Through - Amulets.mp3");
+    //Efectos de sonido
+    soyInevitable = new SoundFile(sound, "Yo soy inevitable.wav");
+    soyIronman = new SoundFile(sound, "Yo soy ironman.wav");
+    disparo = new SoundFile(sound, "Laser Gun.wav");
+    //Comenzar la reproducición
+    musicaFondo.play();
   }
 
   //--------------- METODOS ---------------
@@ -195,7 +203,7 @@ class AventuraGrafica {
       //Actualización de los meteoritos
       for (int i = 0; i < cA; i++) {
         y[i] = y[i] + t[i];
-        if (y[i] > height/1.3 ) { //Fijarte el N° DEL SUELO
+        if (y[i] > height/1.3 ) {
           reciclar(i);
         }
       }
@@ -335,6 +343,7 @@ class AventuraGrafica {
   void mouse() {
     if (estado == 10) {
       juego.mouse();
+      //disparo.play(2);
     }
   }
 
@@ -345,7 +354,6 @@ class AventuraGrafica {
     if  ( estado == 0 ) {  
       if ( key == ' ' ) {
         estado = 1;
-        //musicaFondo.stop();
       }
     }
     //PANTALLA 2 - Tony se encuentra en la Nave 
@@ -388,12 +396,16 @@ class AventuraGrafica {
     else if (estado == 9) { 
       if ( keyCode == ENTER) {
         estado = 10;
+        musicaFondo.stop();
+        musicaJuego.play();
       }
     }
     //Saber lo ocurrido == Hacia el final 1
     else if (estado == 8) {
       if ( keyCode == UP) { 
         estado = 11;
+        musicaFondo.stop();
+        musicaGanar.play();
       }
     }
     //REINICIAR
@@ -402,6 +414,8 @@ class AventuraGrafica {
         estado = 0;
         mPosY = height /24 - 300;
         println("Las variables se han reseteado");
+        musicaFondo.stop();
+        musicaFondo.play();
       }
     }
     //CREDITOS
@@ -418,10 +432,14 @@ class AventuraGrafica {
         estado = 0;
         mPosY = height /24 - 300;
         println("Las variables se han reseteado");
-        //Reiniciar el sonido
-        //musicaGanar.stop();
-        //musicaPerder.stop();
-        //musicaFondo.play();
+        //REINICIAR la música
+        musicaFondo.play();
+        musicaPerder.stop();
+        musicaGanar.stop();
+        //REINICIAR los efectos de sonido
+        soyInevitable.stop();
+        soyInevitable.stop();
+        //disparo.stop();
       }
     }
   }
@@ -483,4 +501,33 @@ class AventuraGrafica {
   void pantalla15() {
     image(estado15, width/2, height/2, tamX, tamY);
   }
+  
+  //------------------------ FUNCIONES REUTILIZABLES ------------------------
+  
+  //------------------------ FUENTES ------------------------
+  void fuenteUna(String text, float x, float y, color c, int t) {
+    pushStyle();
+    textFont(pixel);
+    fill(c);
+    textSize(t);
+    text(text, x, y);
+    popStyle();
+  }
+
+  void fuenteDos(String text, float x, float y, color c, int t) {
+    pushStyle();
+    textFont(pixel2);
+    fill(c);
+    textSize(t);
+    text(text, x, y);
+    popStyle();
+  }
+  
+  //-------------------- Reciclar VALORES de forma reutilizable = Animaciones meteoritos y lluvia de binarios --------------------
+  void reciclar( int r ) {
+  x[r] = random(width/24-100, width/0.9);
+  y[r] = height /24 - 200;
+  t[r] = random( 0, 15 );
+  v[r] = random( 0.1, 2.5 );
+}
 }

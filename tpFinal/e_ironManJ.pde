@@ -52,6 +52,10 @@ class IronmanJ {
       float d = dist(xIronman, yIronman, e[i].xEnemigos, e[i].yEnemigos);
       if (d < xIronman/2 && d < yIronman/2) {
         aventuraGrafica.estado = 13;
+        aventuraGrafica.musicaJuego.stop();
+        //aventuraGrafica.disparo.stop();
+        aventuraGrafica.soyInevitable.play();
+        aventuraGrafica.musicaPerder.play();
         yIronman = height/2;
         proyectil.xProyectil = width/6 + 50;
         e[i].reciclar();     
