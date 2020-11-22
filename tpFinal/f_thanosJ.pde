@@ -35,7 +35,6 @@ class ThanosJ {
     float d = dist( xThanos, yThanos, p.xProyectil, p.yProyectil);
     if (d < xThanos/5 && d < yThanos/4) {
       aventuraGrafica.estado = 12;
-      //aventuraGrafica.disparo.stop();
       aventuraGrafica.musicaJuego.stop();
       aventuraGrafica.soyIronman.play();
       aventuraGrafica.musicaGanar.play();

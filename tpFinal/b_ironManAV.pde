@@ -6,7 +6,7 @@ class IronmanAV {
   IronmanAV() {
     //Cargar imágenes
     ironman = loadImage("ironmanAV.png");
-  }
+}
 
   //--------------- METODOS ---------------
   // DRAW DE LA CLASE

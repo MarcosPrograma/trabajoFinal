@@ -53,7 +53,6 @@ class IronmanJ {
       if (d < xIronman/2 && d < yIronman/2) {
         aventuraGrafica.estado = 13;
         aventuraGrafica.musicaJuego.stop();
-        //aventuraGrafica.disparo.stop();
         aventuraGrafica.soyInevitable.play();
         aventuraGrafica.musicaPerder.play();
         yIronman = height/2;

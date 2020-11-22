@@ -6,6 +6,7 @@ class AventuraGrafica {
   //Imagenes
   PImage estado1, estado2, estado3, estado4, estado5, estado6, estado7, estado8, estado9, estado10, estado12, estado13, estado14, estado15;
   PImage encuadreOpcion, encuadreDialogo;
+  PImage naveFicticia;
   //Colores
   color amarillo, rojo, negro, verde, violeta, blanco;
   //--------------- ESTÉTICA ---------------
@@ -21,7 +22,7 @@ class AventuraGrafica {
   PImage[] meteoro = new PImage[cA];
   //--------------- SONIDO ---------------
   SoundFile musicaFondo, musicaJuego, musicaGanar, musicaPerder;
-  SoundFile soyInevitable, soyIronman, disparo;
+  SoundFile soyInevitable, soyIronman;
   //--------------- CAMPOS ---------------
   int estado = 0;
   //Resize
@@ -56,6 +57,7 @@ class AventuraGrafica {
     //DECORACION
     encuadreOpcion = loadImage("Opcion.png");
     encuadreDialogo = loadImage("recuadreDialogo.png");
+    naveFicticia = loadImage("Nave ficticia.png");
     //ATRIBUTOS
     imageMode(CENTER);
     textAlign(CENTER, CENTER);
@@ -100,7 +102,6 @@ class AventuraGrafica {
     //Efectos de sonido
     soyInevitable = new SoundFile(sound, "Yo soy inevitable.wav");
     soyIronman = new SoundFile(sound, "Yo soy ironman.wav");
-    disparo = new SoundFile(sound, "Laser Gun.wav");
     //Comenzar la reproducición
     musicaFondo.play();
   }
@@ -132,7 +133,7 @@ class AventuraGrafica {
       fuenteDos("Fabricar \n teletransportacion", width/2 - 200, tamY/1.1, negro, 15);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/5);
-      fuenteDos("Iron Man:", width/3.6, height/13, amarillo, 18);
+      fuenteDos("Iron Man:", width/2, height/13, amarillo, 18);
       fuenteDos("Nuestra nave tiene varios \n problemas y no contamos con los \n recursos necesarios para \n repararla, pero tengo mis \n herramientas esenciales.", width/2, height/5, negro, 18);
     }
     //PANTALLA 3 - ESTADO 2 - Marcar coordenadas
@@ -143,7 +144,7 @@ class AventuraGrafica {
       fuenteDos("Marcar coordenadas", width/2, tamY/1.1, negro, 15);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/5);
-      fuenteDos("Iron Man:", width/3.6, height/13, amarillo, 18);
+      fuenteDos("Iron Man:", width/2, height/13, amarillo, 18);
       fuenteDos("Con la ayuda de estas y mi \n conocimiento avanzado en ingeniera, \n podríamos utilizar mi Smartphone \n y crear un dispositivo de \n teletransportación, y de esta \n manera ir a la tierra", width/2, height/4.5, negro, 18);
     }
     //PANTALLA 4 - ESTADO 3 - Pasar tiempo en la nave
@@ -151,10 +152,13 @@ class AventuraGrafica {
       pantalla4();
       //Opción
       fuenteUna("Presionar 'R' para reiniciar", tamX/2, tamY/1.1, blanco, 20);
+      //Movimiento e interacción de la nave fictica
+      float posX = map(mouseX, 0, width, width/3, width/1.5);
+      image(naveFicticia, posX, height/3.5);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/5);
-      fuenteDos("Iron Man:", width/3.6, height/13, amarillo, 18);
-      fuenteDos("Muy divertido, pero \n nuestra misión es otra…", width/2, height/4, negro, 18);
+      fuenteDos("Iron Man:", width/2, height/13, amarillo, 18);
+      fuenteDos("Muy divertido, pero \n nuestra misión es otra…", width/2, height/6, negro, 18);
     }
     //PANTALLA 5 - ESTADO 4 - Iron-Man en la tierra (elección)  
     else if (estado == 4) {
@@ -167,7 +171,7 @@ class AventuraGrafica {
       fuenteDos("Fabricar \n máquina del tiempo", width/2 - 200, tamY/1.1, negro, 15);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/5);
-      fuenteDos("Iron Man:", width/3.6, height/13, amarillo, 18);
+      fuenteDos("Iron Man:", width/2, height/13, amarillo, 18);
       fuenteDos("Se me ocurren dos soluciones,\n la primera es construir una \n máquina del tiempo, e intentar \n encontrar una manera más \n fácil de ganar. La segunda \n es reparar la nave y buscar \n a Thanos en el universo.", width/2, height/4.5, negro, 18);
     }
     //PANTALLA 6 - ESTADO 5 - Crear una máquina del tiempo
@@ -181,7 +185,7 @@ class AventuraGrafica {
       fuenteDos("Ver el pasado", width/2 - 200, tamY/1.1, negro, 15);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/5);
-      fuenteDos("Iron Man:", width/3.6, height/13, amarillo, 18);
+      fuenteDos("Iron Man:", width/2, height/13, amarillo, 18);
       fuenteDos("Me alegro de haber vislumbrado \n los avances de Emmet Brown \n en la ciencia del tiempo. \n ¿Crees que deberíamos ver \n el pasado o el futuro?", width/2, height/5, negro, 18);
     }
     //PANTALLA 7 - ESTADO 6 - Reparar la nave y viajar al espacio 
@@ -193,7 +197,7 @@ class AventuraGrafica {
       fuenteDos("Mandar señal\ny viajar", width/2, tamY/1.1, negro, 15);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/5);
-      fuenteDos("Iron Man:", width/3.6, height/13, amarillo, 18);
+      fuenteDos("Iron Man:", width/2, height/13, amarillo, 18);
       fuenteDos("Estando en casa esto es mucho \n más fácil… \n Deberíamos mandar una señal \n a los vengadores", width/2, height/5, negro, 18);
     }
     //PANTALLA 8 - ESTADO 7 - Ver el pasado (Reinicio)
@@ -217,7 +221,7 @@ class AventuraGrafica {
       fuenteUna("Presionar 'R' para reiniciar", tamX/2, tamY/1.1, negro, 20);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/5);
-      fuenteDos("Iron Man:", width/3.6, height/13, amarillo, 18);
+      fuenteDos("Iron Man:", width/2, height/13, amarillo, 18);
       fuenteDos("Esto le hubiese servido \n a los objetivos de Jhon Hammond, \n pero no para nuestros fines.", width/2, height/5, negro, 18);
     }
     //PANTALLA 9 - ESTADO 8 - Ver futuro (Hacia el final 1)
@@ -242,7 +246,7 @@ class AventuraGrafica {
       fuenteDos("Ver lo ocurrido", width/2, tamY/1.1, negro, 15);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/5);
-      fuenteDos("Iron Man:", width/3.6, height/13, amarillo, 18);
+      fuenteDos("Iron Man:", width/2, height/13, amarillo, 18);
       fuenteDos("¿¡Qué rayos ocurrió aquí!? \n ¿¡Thanos fue derrotado!?", width/2, height/5, negro, 18);
     }
     //PANTALLA 10 - ESTADO 9 - Contextualización del juego (Confrontación entre Thanos y los Avengers)
@@ -254,7 +258,7 @@ class AventuraGrafica {
       fuenteDos("'Enter'\npara jugar", width/2, tamY/1.1, negro, 15);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/5);
-      fuenteDos("Narrador:", width/3.6, height/13, blanco, 18);
+      fuenteDos("Narrador:", width/2, height/13, blanco, 18);
       fuenteDos("Has viajado al planeta Titán \n y deberás pelear mano a mano \n contra Thanos. Pulsa 'W' y \n 'S' para desplazarte. Utiliza el \n click derecho para mover el \n plasma. ¡OJO, QUE NO TE TOQUEN SUS \n ALIADOS!", width/2, height/4.5, negro, 18);
     }
     //PANTALLA 11 - ESTADO 10 - Minijuego
@@ -288,7 +292,7 @@ class AventuraGrafica {
       fuenteUna("Presionar 'Barra espaciadora' para \n ver el reconocimiento", tamX/2, tamY/1.1, amarillo, 20);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/5);
-      fuenteDos("Narrador:", width/3.6, height/13, blanco, 18);
+      fuenteDos("Narrador:", width/2, height/13, blanco, 18);
       fuenteDos("En un futuro muy lejano… El \n malévolo gigante quedo hecho \n cenizas a causa de un resfriado. \n Se comenta que un tal Tony Stark \n generó un arma biológica que \n destruyó su sistema inmunológico… \n Lo demás vino solo.", width/2, height/4.5, negro, 18);
     }
     //PANTALLA 13 - ESTADO 12 - Final 2 (Ganan los avengers)
@@ -300,7 +304,7 @@ class AventuraGrafica {
       fuenteUna("Presionar 'Barra espaciadora' para \n ver el reconocimiento", tamX/2, tamY/1.1, blanco, 20);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/5);
-      fuenteDos("Narrador:", width/3.6, height/13, blanco, 18);
+      fuenteDos("Narrador:", width/2, height/13, blanco, 18);
       fuenteDos("Posterior a una pelea sumamente \n reñida por parte de ambos bandos, \n el grupo de héroes consiguen \n hacerse con la única probabilidad \n de quedarse con la victoria… \n ¡Vengadores unidos jamás serán \n vencidos!", width/2, height/4.5, negro, 18);
     }
     //PANTALLA 14 - ESTADO 13 - Final 3 (Gana Thanos)
@@ -312,21 +316,22 @@ class AventuraGrafica {
       fuenteUna("Presionar 'Barra espaciadora' para \n ver el reconocimiento", tamX/2, tamY/1.1, blanco, 20);
       //Dialogo
       image(encuadreDialogo, tamX/2, tamY/5);
-      fuenteDos("Thanos:", width/3.6, height/13, violeta, 18);
+      fuenteDos("Thanos:", width/2, height/13, violeta, 18);
       fuenteDos("A pesar de todo, fue un acto \n honorable por parte del Sr. \n Stark… Una pequeña prueba de que \n este humano tiene corazón.", width/2, height/5, negro, 18);
     }
     //PANTALLA 15 - ESTADO 14 - Créditos
     else if (estado == 14) {
       juego.jugando = false;
       pantalla15();
-      //Título == IRON SOLDIER = LA ULTIMA POSIBILIDAD
-      fuenteUna("Iron Soldier", tamX/2, tamY/7, amarillo, 40);
-      fuenteDos("la última posibilidad", tamX/2, tamY/12.5, blanco, 14);
       //Dialogo
       fuenteDos("Horneado por Marcos. E. Juárez Agüero \n y Gustavo Perugini", width/2, mPosY - 100, rojo, 18);
       fuenteDos("IDE: Processing.", width/2, mPosY - 50, violeta, 18);
       fuenteDos("Un presente para los profesores Matias Jauregui \n Lorda y Tobías Albirosa (espero que cuando Thanos \n chasquee los dedos, sean del %50 de la población \n que no desaparece)", width/2, mPosY + 25, 255, 18);
       fuenteDos("Tecnologia Multimedial 1 - COM. 2 UNLP - FDA", width/2, mPosY + 100, verde, 18);
+      //Título == IRON SOLDIER = LA ULTIMA POSIBILIDAD
+      image(encuadreDialogo, tamX/2, tamY/8);
+      fuenteUna("Iron Soldier", tamX/2, tamY/7, amarillo, 40);
+      fuenteDos("la última posibilidad", tamX/2, tamY/12.5, blanco, 14);
       //REINICIAR Dialogo
       if (mPosY == height /24 - 300) {
         mPosY = height/0.8;
@@ -343,7 +348,6 @@ class AventuraGrafica {
   void mouse() {
     if (estado == 10) {
       juego.mouse();
-      //disparo.play(2);
     }
   }
 
@@ -396,6 +400,7 @@ class AventuraGrafica {
     else if (estado == 9) { 
       if ( keyCode == ENTER) {
         estado = 10;
+        //Cambiar la música
         musicaFondo.stop();
         musicaJuego.play();
       }
@@ -404,6 +409,7 @@ class AventuraGrafica {
     else if (estado == 8) {
       if ( keyCode == UP) { 
         estado = 11;
+        //CAMBIAR la música
         musicaFondo.stop();
         musicaGanar.play();
       }
@@ -412,16 +418,19 @@ class AventuraGrafica {
     else if (estado == 3 || estado == 7) { 
       if ( key == 'r' || key == 'R') {
         estado = 0;
+        //REINICIAR los valores de las variables
         mPosY = height /24 - 300;
-        println("Las variables se han reseteado");
+        //REINICIAR la música
         musicaFondo.stop();
         musicaFondo.play();
+        println("Las variables se han reseteado");
       }
     }
     //CREDITOS
     else if (estado == 11 || estado == 12 || estado == 13) {
       if (key == ' ') {
         estado = 14;
+        //REINICIAR los valores de las variables
         mPosY = height /24 - 300;
         println("Las variables se han reseteado");
       }
@@ -430,6 +439,7 @@ class AventuraGrafica {
     else if (estado == 14) {
       if (key == 'r' || key == 'R') {
         estado = 0;
+        //REINICIAR los valores de las variables
         mPosY = height /24 - 300;
         println("Las variables se han reseteado");
         //REINICIAR la música
@@ -438,8 +448,7 @@ class AventuraGrafica {
         musicaGanar.stop();
         //REINICIAR los efectos de sonido
         soyInevitable.stop();
-        soyInevitable.stop();
-        //disparo.stop();
+        soyIronman.stop();
       }
     }
   }
@@ -501,9 +510,9 @@ class AventuraGrafica {
   void pantalla15() {
     image(estado15, width/2, height/2, tamX, tamY);
   }
-  
+
   //------------------------ FUNCIONES REUTILIZABLES ------------------------
-  
+
   //------------------------ FUENTES ------------------------
   void fuenteUna(String text, float x, float y, color c, int t) {
     pushStyle();
@@ -522,12 +531,12 @@ class AventuraGrafica {
     text(text, x, y);
     popStyle();
   }
-  
+
   //-------------------- Reciclar VALORES de forma reutilizable = Animaciones meteoritos y lluvia de binarios --------------------
   void reciclar( int r ) {
-  x[r] = random(width/24-100, width/0.9);
-  y[r] = height /24 - 200;
-  t[r] = random( 0, 15 );
-  v[r] = random( 0.1, 2.5 );
-}
+    x[r] = random(width/24-100, width/0.9);
+    y[r] = height /24 - 200;
+    t[r] = random( 0, 15 );
+    v[r] = random( 0.1, 2.5 );
+  }
 }
